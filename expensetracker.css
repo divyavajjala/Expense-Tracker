@@ -1,0 +1,16 @@
+body {
+    text-align: center;
+    font-size: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+#header {
+    margin: 3% 0;
+    padding: 1%;
+    background-color: rgb(26, 26, 122);
+    color: white;
+}
+input {
+    border: none;
+    border-bottom: 1px solid black;
+    margin: 1%;
+}
