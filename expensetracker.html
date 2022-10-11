@@ -3,7 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>Expense Tracker</title>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link type="text/css" rel="stylesheet" href="expensetracker.css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <script src="expense-tracker.js"></script>
     </head>
     <body>
         <div id="header">
@@ -16,7 +19,19 @@
                 <input id="text" type="textarea" placeholder="Description">
                 <input id="rs" type="textarea" placeholder="Rs">
                 <input id="date" type="textarea" placeholder="dd/mm/yy">
+                <button id="submit" type="button">Submit</button>
             </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Rs</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
         </div>
     </body>
 </html>

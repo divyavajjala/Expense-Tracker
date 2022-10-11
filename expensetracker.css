@@ -14,3 +14,26 @@ input {
     border-bottom: 1px solid black;
     margin: 1%;
 }
+table {
+    border: none;
+    margin: 5% 30% 0% 30%;
+    width: 45%;
+    
+}
+td,th {
+    width: 30%;
+    border-bottom: 1px dashed black;
+    padding: 5px;
+    font-size: 10px;
+}
+/* th {
+    border-bottom: 1px solid black;
+} */
+.delete ::after {
+content:"";
+clear: both;
+display: table;
+}
+.delete {
+    color:red;
+}
