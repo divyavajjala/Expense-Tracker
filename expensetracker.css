@@ -21,19 +21,29 @@ table {
     
 }
 td,th {
-    width: 30%;
+    width: 40%;
     border-bottom: 1px dashed black;
-    padding: 5px;
-    font-size: 10px;
-}
-/* th {
-    border-bottom: 1px solid black;
-} */
-.delete ::after {
-content:"";
-clear: both;
-display: table;
+    padding: 2px;
+    font-size: 12px;
 }
 .delete {
     color:red;
+    border: none;
+}
+fieldset {
+    width: 50%;
+    margin-left:30%;
+    margin-top: 4%;
+    border: none;
+}
+#left,#earned,#spent {
+    margin-right:1%;
+    font-size: 12px;
+}
+#totalleft,#earnedrs,#spentrs {
+    border: 1px solid black;
+    width: 40%;
+    margin-right:16%;
+    padding: 1%;
+    font-size: 12px;
 }
