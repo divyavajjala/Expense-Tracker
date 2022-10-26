@@ -3,12 +3,16 @@ $ (document).ready(function(){
         let description = $("#text").val(); //get the user entered description value ex:groceries//in js we write document.getElementById("text").value;
         let rs = $("#rs").val(); //get the user entered rs
         let date = $("#date").val(); //get the user entered date
-        if()
+        let validationAmount = /^[0-10]$/;
+        
         //to user must enter all details
         if((!description)||(!rs)||(!date)){
             alert("please enter the details");
         }
         else{
+            if(!validationAmount.test(rs)){ //test to verify the expression//
+                alert("please enter numbers");
+            }
             //setting the table row with user entered values
             let tableRow = "<tr><td>" + description + "</td><td>" + rs + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td></tr>";
             $("table tbody").append(tableRow); //appending tablerow data to tbody inside the table
@@ -44,4 +48,5 @@ $ (document).ready(function(){
         $("#spentrs").text(spentAmount);
         $("#totalleft").text(leftAmount);
     }
+
 });
