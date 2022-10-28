@@ -3,8 +3,8 @@ $ (document).ready(function(){
         let description = $("#text").val(); //get the user entered description value ex:groceries//in js we write document.getElementById("text").value;
         let rs = $("#rs").val(); //get the user entered rs
         let date = $("#date").val(); //get the user entered date
-        let validationAmount = /^[+]?[0-9]+$|^[-][0-9]+$/; //^ starts with
-        
+        let validationAmount = /^[+]?[0-9]+$|^[-][0-9]+$/; //^ starts with,[0-9]means accept any no btw 0-9 (1,2..9) and + means 1 time or above accept 10,200..//
+        //$means ends with,? means optional accept + and without +//
         //to user must enter all details
         if((!description)||(!rs)||(!date)){
             alert("please enter the details");
