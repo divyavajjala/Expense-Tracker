@@ -3,7 +3,7 @@ $ (document).ready(function(){
         let description = $("#text").val(); //get the user entered description value ex:groceries//in js we write document.getElementById("text").value;
         let rs = $("#rs").val(); //get the user entered rs
         let date = $("#date").val(); //get the user entered date
-        let validationAmount = /^[0-10]$/;
+        let validationAmount = /^[+]?[0-9]+$|^[-][0-9]+$/; //^ starts with
         
         //to user must enter all details
         if((!description)||(!rs)||(!date)){
@@ -11,22 +11,24 @@ $ (document).ready(function(){
         }
         else{
             if(!validationAmount.test(rs)){ //test to verify the expression//
-                alert("please enter numbers");
+                alert("please enter valid amount");
             }
+            else{
             //setting the table row with user entered values
-            let tableRow = "<tr><td>" + description + "</td><td>" + rs + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td></tr>";
-            $("table tbody").append(tableRow); //appending tablerow data to tbody inside the table
-            //to clear the text fileds 
-            $("#text").val(""); 
-            $("#rs").val("");
-            $("#date").val("");
-            //calling the function to get the values from the table and to display the values(rs)
-            calculations ();
-            //when click on delete button 
-            $(".delete").click(function(){ 
-                $(this).parent().parent().remove(); //this means delete button in specific row, <tr>is the parent of <td> and <td> is parent of delete button. remove to tablerow.
-                calculations (); //calling the function to delete the specific row and calculations of that row.
-            });
+                let tableRow = "<tr><td>" + description + "</td><td>" + rs + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td></tr>";
+                $("table tbody").append(tableRow); //appending tablerow data to tbody inside the table
+                //to clear the text fileds 
+                $("#text").val(""); 
+                $("#rs").val("");
+                $("#date").val("");
+                //calling the function to get the values from the table and to display the values(rs)
+                calculations ();
+                //when click on delete button 
+                $(".delete").click(function(){ 
+                    $(this).parent().parent().remove(); //this means delete button in specific row, <tr>is the parent of <td> and <td> is parent of delete button. remove to tablerow.
+                    calculations (); //calling the function to delete the specific row and calculations of that row.
+                });
+            };
         };
     });
     function calculations () { //to get the values from the table and calculating each amount
