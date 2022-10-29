@@ -8,13 +8,14 @@ $ (document).ready(function(){
             this.date = date;
         }
     }
+    
     $("#submit").click(function() {
         let description = $("#text").val();
         let amount = $("#rs").val();
         let date = $("#date").val();
         let expense = new Expense(description,amount,date);
-    let a = expenses.push(expense);
-    console.log(expenses);
+        let a = expenses.push(expense);
+        console.log(expenses);
         if((!description)||(!amount)||(!date)){
             alert("please enter the details");
         }
@@ -55,6 +56,25 @@ $ (document).ready(function(){
         $("#totalleft").text(leftAmount);
         
     }
-    
+    // $("#refresh").click(function() {
+    //     description = $("#text").val();
+    //     let uamount = $("#rs").val();
+    //     let date = $("#date").val();
+    //     let expense = new Expense(description,amount,date);
+    //     let a = expenses.push(expense);
+    //     let updateTableRow = "<tr><td>" + description + "</td><td>" + amount + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td></tr>";
+    //     $("table tbody").append(tableRow); //appending tablerow data to tbody inside the table
+    //     //to clear the text fileds 
+    //     $("#text").val(""); 
+    //     $("#rs").val("");
+    //     $("#date").val("");
+    //     //calling the function to get the values from the table and to display the values(rs)
+    //     calculations (expenses);
+    //     //when click on delete button 
+    //     $(".delete").click(function(){ 
+    //         $(this).parent().parent().remove(); //this means delete button in specific row, <tr>is the parent of <td> and <td> is parent of delete button. remove to tablerow.
+    //         calculations (expenses); //calling the function to delete the specific row and calculations of that row.
+    //     });
+    // });
     
 });
