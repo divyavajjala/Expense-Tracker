@@ -13,6 +13,7 @@ input {
     border: none;
     border-bottom: 1px solid black;
     margin: 1%;
+    /* position: relative; */
 }
 table {
     border: none;
@@ -36,6 +37,9 @@ fieldset {
     margin-top: 4%;
     border: none;
 }
+/* form {
+    position: relative;
+} */
 #left,#earned,#spent {
     margin-right:1%;
     font-size: 12px;
@@ -46,4 +50,17 @@ fieldset {
     margin-right:16%;
     padding: 1%;
     font-size: 12px;
+}
+form {
+    position: relative;
+}
+.amount-error {
+    color: red;
+    position: absolute;
+    top:40px;
+}
+.date-error {
+    color: red;
+    position: absolute;
+    top:40px;
 }
