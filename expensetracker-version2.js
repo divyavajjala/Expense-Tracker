@@ -34,7 +34,7 @@ $ (document).ready(function() {
             }
             else {
             //setting the table row with user entered values
-                let tableRow = "<tr><td>" + description + "</td><td>" + amount + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td><td>"+"<button class='edit' type='button'><i class='fa-regular fa-pen-to-square'></i></button>"+"</td></tr>";
+                let tableRow = "<tr id=" + expenses.length + "><td>" + description + "</td><td>" + amount + "</td><td>" + date + "</td><td>"+"<button class='delete' type='button'><i class='fas fa-trash'></i></button>"+"</td><td>"+"<button class='edit' type='button'><i class='fa-regular fa-pen-to-square'></i></button>"+"</td><td>"+"<button class='save' type='button'><i class='fas fa-save'></i></button>"+"</td></tr>";
                 $("table tbody").append(tableRow); //appending tablerow data to tbody inside the table
                 //to clear the text fileds 
                 $("#text").val(""); 
@@ -45,24 +45,39 @@ $ (document).ready(function() {
                 //calling the function to get the values from the table and to display the values(rs)
                 calculations (expenses);
                 //when click on delete button 
-                $(".delete").click(function(){ 
-                    $(this).parent().parent().remove(); //this means delete button in specific row, <tr>is the parent of <td> and <td> is parent of delete button. remove to tablerow.
-                    calculations(expenses);
-                    // $(this).parent().parent().remove(calculations(expenses)); //calling the function to delete the specific row and calculations of that row.
-                });
-                $(".edit").click(function() {
-                    let des = $(this).parent().parent().attr(description);//attr is used to specify the name of the attribute.//
-                    let val = $(this).parent().parent().attr(amount);
-                    let dt = $(this).parent().parent().attr(date);
-                    $(this).parent().parent().find("td:eq(0)").html('<input name="edit-des" value="'+description+'">'); //eq method reduces the set of elements to the one with a specific index.//
-                    $(this).parent().parent().find("td:eq(1)").html('<input name="edit-rs" value="'+amount+'">');
-                    $(this).parent().parent().find("td:eq(2)").html('<input name="edit-date" value="'+date+'">');
-                });
-                // $(".update").click(function(){
-                    
-                // });
+                
+                
+                
             };
         };
+    });
+    $(".delete").click(function(){ 
+        $(this).parent().parent().remove(); //this means delete button in specific row, <tr>is the parent of <td> and <td> is parent of delete button. remove to tablerow.
+        calculations(expenses);
+        // $(this).parent().parent().remove(calculations(expenses)); //calling the function to delete the specific row and calculations of that row.
+    });
+    $(".edit").click(function() {
+        // get the expense from the model
+        // 
+        let editDes = $(this).parent().parent().attr(description);//attr is used to specify the name of the attribute.//
+        let editVal = $(this).parent().parent().attr(amount);
+        let editDate = $(this).parent().parent().attr(date);
+        //find method returns descendant elements of the selected element//
+        $(this).parent().parent().find("td:eq(0)").html('<input name="edit-des" value="'+description+'">'); //eq method reduces the set of elements to the one with a specific index.//
+        $(this).parent().parent().find("td:eq(1)").html('<input name="edit-rs" value="'+amount+'">');
+        $(this).parent().parent().find("td:eq(2)").html('<input name="edit-date" value="'+date+'">');
+        
+    });
+    $(".update").click(function(){
+        let updateDes = $(this).parent().parent().find($("#text").val());
+        let updateAmount = $(this).parent().parent().find($("#rs").val());
+        let updateDate = $(this).parent().parent().find($("#date").val());
+        $(this).parent().parent().find("td:eq(0)").text(updateDes);
+        $(this).parent().parent().find("td:eq(0)").text(updateAmount);
+        $(this).parent().parent().find("td:eq(0)").text(updateDate);
+        $(this).parent().parent().attr('description', description);
+        $(this).parent().parent().attr('description', description);
+        $(this).parent().parent().attr('description', description);
     });
     function calculations (expenses) { //to get the values from the table and calculating each amount
         // var row = $("#table");//document.getElementById("table")

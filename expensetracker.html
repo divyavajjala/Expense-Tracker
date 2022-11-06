@@ -6,7 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link type="text/css" rel="stylesheet" href="expensetracker.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <script src="expensetracker-version2.js"></script>
+        <script src="expenses.js"></script>
     </head>
     <body>
         <div id="header">
@@ -21,7 +21,7 @@
                 <input id="rs" type="text" placeholder="Amount">
                 <span class="date-error"></span>
                 <input id="date" type="text" placeholder="dd/mm/yy">
-                <button id="submit" type="button">Submit</button>
+                <button id="submit" type="button" onclick="submitExpense()">Submit</button>
                 <button id="refresh" type="button">Refresh</button>
                 <fieldset>
                     <label id="left">Total left rs:</label>
