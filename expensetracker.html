@@ -6,7 +6,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link type="text/css" rel="stylesheet" href="expensetracker.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <script src="expense-tracker.js"></script>
+        <script src="expenses.js"></script>
     </head>
     <body>
         <div id="header">
@@ -15,11 +15,13 @@
         <div id="main">
             <h2>Add positive values for earnings</h2>
             <h2>Add negative values for expenses</h2>
-            <form id="textarea">
-                <input id="text" type="textarea" placeholder="Description">
-                <input id="rs" type="textarea" placeholder="Rs">
-                <input id="date" type="textarea" placeholder="dd/mm/yy">
-                <button id="submit" type="button">Submit</button>
+            <form id="expenseform">
+                <input id="text" type="text" placeholder="Description">
+                <span class="amount-error"></span>
+                <input id="rs" type="text" placeholder="Amount">
+                <span class="date-error"></span>
+                <input id="date" type="text" placeholder="dd/mm/yy">
+                <button id="submit" type="button" onclick="submitExpense()">Submit</button>
                 <button id="refresh" type="button">Refresh</button>
                 <fieldset>
                     <label id="left">Total left rs:</label>
@@ -29,12 +31,13 @@
                     <label id="spent">Spent rs:</label>
                     <label id="spentrs"></label>
                 </fieldset>
+                <!-- <span id="errormessage"></span> -->
             </form>
             <table id="table">
                 <thead>
                     <tr>
                         <th>Description</th>
-                        <th>Rs</th>
+                        <th>Amount</th>
                         <th>Date</th>
                     </tr>
                 </thead>
