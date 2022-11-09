@@ -43,11 +43,12 @@ fieldset {
 #left,#earned,#spent {
     margin-right:1%;
     font-size: 12px;
+    width: auto;
 }
 #totalleft,#earnedrs,#spentrs {
     border: 1px solid black;
-    width: 40%;
-    margin-right:16%;
+    width: auto;
+    margin-right:10%;
     padding: 1%;
     font-size: 12px;
 }
@@ -55,12 +56,19 @@ form {
     position: relative;
 }
 .amount-error {
-    color: red;
+    color: #ff0000;
     position: absolute;
     top:40px;
 }
 .date-error {
-    color: red;
+    color: #ff0000;
     position: absolute;
     top:40px;
+}
+#spentrs {
+    color: #ff0000;
+}
+#earnedrs {
+    font-weight: bold;
+    color:#1bbd26;
 }
