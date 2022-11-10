@@ -117,6 +117,7 @@ function editExpense(eventObj) {
 // action: savebuttonclick on grocery 2
 function saveExpense(eventObj) {
     let targetObj = eventObj.target;
+    
     // get the (particular row data) from the view and re-place it into the model
     let editedExpense = { 
         description: ($(targetObj).parent().parent().parent().find("td:eq(0)").find("input").val()),
@@ -132,10 +133,12 @@ function saveExpense(eventObj) {
         $(targetObj).parent().parent().parent().find("td:eq(1)").html(editedExpense.amount);
         $(targetObj).parent().parent().parent().find("td:eq(2)").html(editedExpense.date);
         calculations(expenses);
+        $(".save").remove();
+        $(".edit").show();
     };
-    $(".save").remove();
-    $(".edit").show();
 }
+
+
 // problem 1: expenses array has one Expense object and one object??
 // problem 2: row is still editable after clicking the save button. 
 // model: expenses = [

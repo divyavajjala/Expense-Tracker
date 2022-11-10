@@ -66,6 +66,7 @@ form {
     top:40px;
 }
 #spentrs {
+    font-weight: bold;
     color: #ff0000;
 }
 #earnedrs {
