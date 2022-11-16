@@ -1,3 +1,7 @@
+function signInForm() {
+    // $("#expenseform").hide();
+    $(".popupWindow").show();
+}
 let expenses = []; // model  
 class Expense {  
     constructor(description, amount, date) { 

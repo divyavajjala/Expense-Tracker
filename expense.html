@@ -4,9 +4,9 @@
         <meta charset="utf-8">
         <title>Expense Tracker</title>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="expensetracker.css"/>
+        <link type="text/css" rel="stylesheet" href="expense.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <script src="expenses.js"></script>
+        <!-- <script src="expenses.js"></script> -->
         <!-- <script type="module">
             // Import the functions you need from the SDKs you need
             import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
@@ -47,36 +47,6 @@
                     <a href="">Forgot your password?</a>
                 </div>
             </div>
-            <h2>Add positive values for earnings</h2>
-            <h2>Add negative values for expenses</h2>
-            <form id="expenseform">
-                <input id="text" type="text" placeholder="Description">
-                <span class="amount-error"></span>
-                <input id="rs" type="text" placeholder="Amount">
-                <span class="date-error"></span>
-                <input id="date" type="text" placeholder="dd/mm/yy">
-                <button id="submit" type="button" onclick="submitExpense()">Submit</button>
-                <button id="refresh" type="button">Refresh</button>
-                <fieldset>
-                    <label id="left">Total left rs:</label>
-                    <label id="totalleft"></label>
-                    <label id="earned">Earned rs:</label>
-                    <label id="earnedrs"></label>
-                    <label id="spent">Spent rs:</label>
-                    <label id="spentrs"></label>
-                </fieldset>
-                <!-- <span id="errormessage"></span> -->
-            </form>
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
         </div>
     </body>
 </html>
