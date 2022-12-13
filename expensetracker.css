@@ -30,48 +30,75 @@ body {
     border-color: transparent;
     font-size: 16px;
     float: right;
-    margin: 1.1% 1%;
+    margin: 0.5% 1%;
     padding: 1%;
     width:auto;
     text-align: center;
 }
+img {
+    float: left; 
+    width: auto;
+    height: auto;
+    margin: -0.5% 0.5%;
+    /* position: fixed; */
+}
 h1{
-    text-align: center;
-    display: inline-block;display: inline-block;
-    text-align: center;
+    display: inline-block;
+    /* text-align: center; */
     padding-left: 5%;
     margin-top: 1.5%;
+    text-align: center;
 }
-.popupWindow {
+.popupWindow,.signupPage {
     display: inline-block;
     background-color:#212e6180;
     height: 330px;
     width: 350px;
-    align-items: center;
-    box-sizing: inherit;
+}
+.signupPage {
+    height: 400px;
     position: relative;
 }
-.popupWindow input,#login {
+.popupWindow {
+    position: relative;
+}
+.popupWindow input,#login,.signupPage input,#joinnow {
     height: 50px;
     width: 80%;
     margin: 2% 2% 2% 8%;
     padding: 3px;
     display: block;
     box-sizing: inherit;
-    border: none;
     border-radius: 4px;
     border-color: #c5ced8;
     box-shadow: inset 0 4px 8px 0 #0000000a;
     border-width: 1px;
 }
+/* .signupPage #close {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+} */
+#joinnow {
+    background-color: #42c888;
+    color: #fff;
+    font-size: 16px;
+}
 #login {
-    align-items: center;
+    /* align-items: center; */
     background-color: #13aae5;
 }
 #close {
     position: absolute;
     top: 4px;
     right: 4px;
+    background-color: #f01111;
+    color: #ffffff;
+    border-color: #c5ced8;
+    border-width: 1px;
+}
+.signupPage p,.popupWindow p {
+    font-size: 14px;
 }
 .register {
     text-align: center;
@@ -146,4 +173,7 @@ form {
 #earnedrs {
     font-weight: bold;
     color:#1bbd26;
+}
+.hide {
+    display: none;
 }

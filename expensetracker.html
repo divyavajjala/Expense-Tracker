@@ -6,77 +6,178 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
         <link type="text/css" rel="stylesheet" href="expensetracker.css"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-        <script src="expenses.js"></script>
-        <!-- <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+        <script>
             // TODO: Add SDKs for Firebase products that you want to use
             // https://firebase.google.com/docs/web/setup#available-libraries
-          
+
             // Your web app's Firebase configuration
+            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
             const firebaseConfig = {
-              apiKey: "AIzaSyDmeH-Rpv0PToDJI2RrJWOWeZMfjY3Jn6E",
-              authDomain: "expense-tracker-dbaf8.firebaseapp.com",
-              databaseURL: "https://expense-tracker-dbaf8-default-rtdb.firebaseio.com",
-              projectId: "expense-tracker-dbaf8",
-              storageBucket: "expense-tracker-dbaf8.appspot.com",
-              messagingSenderId: "626153163424",
-              appId: "1:626153163424:web:a44e45bfc3e728cfc3d7c5"
+                apiKey: "AIzaSyDpuyAFHzCJy2yuRinGc_7-CCXnAb96O4Y",
+                authDomain: "fir-5017c.firebaseapp.com",
+                databaseURL:"https://fir-5017c-default-rtdb.firebaseio.com",
+                projectId: "fir-5017c",
+                storageBucket: "fir-5017c.appspot.com",
+                messagingSenderId: "670032822264",
+                // appId: "1:670032822264:web:945704631e1378d616a00d",
+                // measurementId: "G-MVELZSCY8T"
             };
-          
-            // Initialize Firebase
             firebase.initializeApp(firebaseConfig);
-            console.log(firebase);
-          </script> -->
+        </script>
+        <script src="expenses.js"></script>
     </head>
     <body>
         <div id="header">
+            <img src="..\..\images for apps/expense icon.png"/>
             <h1>Welcome To Expense Tracker</h1>
-            <button type="button" onclick="signUpForm()">Sign Up</button>
-            <button type="button" onclick="signInForm()">Sign In</button>
+            <button  class="signup" type="button" onclick="signUpForm()">Sign Up</button>
+            <button class="signin" type="button" onclick="signInForm()">Sign In</button>
         </div>
         <div id="main">
-            <div class="popupWindow">
-                <h4>Welcome Back</h4>
-                <input type="text" placeholder="username">
-                <input type="text" placeholder="password">
-                <button id="login" type="button" onclick="login()">Log In</button>
-                <button id="close" type="button" onclick="close()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+            <!-- <div class="signupPage hide"> 2 seperate classes(signupPage),(hide) currently we are hiding this page  -->
+                <!-- <h3>Create an account</h3>
+                <input class="username" type="text" placeholder="username">
+                <input class="email" type="text" placeholder="email">
+                <input class="password" type="text" placeholder="password">
+                <input class="confirm" type="text" placeholder="confirm password">
+                <button id="joinnow" type="button">Join now</button>
+                <button id="close" type="button" onclick="closeSignUpWindow()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
+                <p>Already have an account ?<a href="">Sign In</a></p>
+            </div>  -->
+            <!-- <div class="popupWindow hide"> -->
+                <!-- <h3>Welcome Back</h3>
+                <input class="user" type="text" placeholder="username"> -->
+                <!-- <span class="user-error"></span> -->
+                <!-- <input class="password" type="text" placeholder="password"> -->
+                <!-- <span class="password-error"></span> -->
+                <!-- <button id="login" type="button">Log In</button>
+                <button id="close" type="button" onclick="closeSignInWindow()"><i class="fa-sharp fa-solid fa-xmark"></i></button>
                 <div class="register">
                     <p>Need an account? <a href>Join Now</a></p>
                     <a href="">Forgot your password?</a>
-                </div>
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="expensesheet hide"> -->
+            <div class="expensesheet ">
+                <h2>Add positive values for earnings</h2>
+                <h2>Add negative values for expenses</h2>
+                <form id="expenseform">
+                    <input id="text" type="text" placeholder="Description">
+                    <span class="amount-error"></span>
+                    <input id="rs" type="text" placeholder="Amount">
+                    <span class="date-error"></span>
+                    <input id="date" type="text" placeholder="dd/mm/yy">
+                    <button id="submit" type="button">Submit</button>
+                    <button id="refresh" type="button">Refresh</button>
+                    <fieldset>
+                        <label id="left">Total left rs:</label>
+                        <label id="totalleft"></label>
+                        <label id="earned">Earned rs:</label>
+                        <label id="earnedrs"></label>
+                        <label id="spent">Spent rs:</label>
+                        <label id="spentrs"></label>
+                    </fieldset>
+                    <!-- <span id="errormessage"></span> -->
+                </form>
+                <table id="table">
+                    <thead>
+                        <tr>
+                            <th>Description</th>
+                            <th>Amount</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
             </div>
-            <h2>Add positive values for earnings</h2>
-            <h2>Add negative values for expenses</h2>
-            <form id="expenseform">
-                <input id="text" type="text" placeholder="Description">
-                <span class="amount-error"></span>
-                <input id="rs" type="text" placeholder="Amount">
-                <span class="date-error"></span>
-                <input id="date" type="text" placeholder="dd/mm/yy">
-                <button id="submit" type="button" onclick="submitExpense()">Submit</button>
-                <button id="refresh" type="button">Refresh</button>
-                <fieldset>
-                    <label id="left">Total left rs:</label>
-                    <label id="totalleft"></label>
-                    <label id="earned">Earned rs:</label>
-                    <label id="earnedrs"></label>
-                    <label id="spent">Spent rs:</label>
-                    <label id="spentrs"></label>
-                </fieldset>
-                <!-- <span id="errormessage"></span> -->
-            </form>
-            <table id="table">
-                <thead>
-                    <tr>
-                        <th>Description</th>
-                        <th>Amount</th>
-                        <th>Date</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
         </div>
     </body>
+    <!-- <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-app.js";
+        import { getDatabase, set, ref, update } from "https://www.gstatic.com/firebasejs/9.13.0/firebase-database.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.13.0/firebase-auth.js";
+        // TODO: Add SDKs for Firebase products that you want to use
+        // https://firebase.google.com/docs/web/setup#available-libraries
+        
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+            apiKey: "AIzaSyDmeH-Rpv0PToDJI2RrJWOWeZMfjY3Jn6E",
+            authDomain: "expense-tracker-dbaf8.firebaseapp.com",
+            databaseURL: "https://expense-tracker-dbaf8-default-rtdb.firebaseio.com",
+            projectId: "expense-tracker-dbaf8",
+            storageBucket: "expense-tracker-dbaf8.appspot.com",
+            messagingSenderId: "626153163424",
+            appId: "1:626153163424:web:a44e45bfc3e728cfc3d7c5"
+        };
+        // Initialize Firebase
+        let app = initializeApp(firebaseConfig);
+        let database = getDatabase(app);
+        const auth = getAuth();
+        joinnow.addEventListener('click',(e)=> {
+            let username = $(".username").val();
+            let email = $(".email").val();
+            let password = $(".password").val();
+            createUserWithEmailAndPassword(auth, email, password) //for new users
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                set(ref(database, 'users/'+ user.uid),{
+                    username: username,
+                    email: email  
+                })
+                alert("user created");
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("errorMessage");
+                // ..
+            });
+        })
+        login.addEventListener('click',(e)=>{
+            let username = $(".user").val();
+            let password = $(".password").val();
+            signInWithEmailAndPassword(auth, username, password) //for existing users
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                let date = new Date();
+                update(ref(database, 'users/'+ user.uid),{
+                    last_login: date,
+                })
+                alert("user loged in!");
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                alert("errorMessage");
+            });
+        })
+        console.log(firebase);
+        Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-app.js";
+        import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.14.0/firebase-analytics.js";
+        TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries
+
+        Your web app's Firebase configuration
+        For Firebase JS SDK v7.20.0 and later, measurementId is optional
+        const firebaseConfig = {
+            apiKey: "AIzaSyDpuyAFHzCJy2yuRinGc_7-CCXnAb96O4Y",
+            authDomain: "fir-5017c.firebaseapp.com",
+            projectId: "fir-5017c",
+            storageBucket: "fir-5017c.appspot.com",
+            messagingSenderId: "670032822264",
+            appId: "1:670032822264:web:945704631e1378d616a00d",
+            measurementId: "G-MVELZSCY8T"
+        };
+
+        Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        const analytics = getAnalytics(app);
+    </script> -->
 </html>
